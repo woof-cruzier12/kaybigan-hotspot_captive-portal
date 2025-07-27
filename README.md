@@ -44,3 +44,6 @@ This project includes and is a derivative work of the following open source proj
 
 - **Mikhmon V3**  
   Licensed under the MIT License. See [Mikhmon V3 License](https://github.com/laksa19/mikhmonv3/blob/master/LICENSE).
+  
+- **Fontello**  
+   Licensed under the MIT License. See [Fontello License](https://github.com/fontello/fontello/blob/master/LICENSE).
