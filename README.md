@@ -6,6 +6,7 @@ This project provides a captive portal HTML page designed specifically for Mikro
 
 - **Captive Portal**: Custom landing page (`index.html`) for WiFi login.
 - **Mikhmon V3 Integration**: Monitor and manage hotspot users.
+- **QR Code Support**: Includes QR code login functionality using Mikhmon QR reader code. The system automatically scans for valid matches for your domain and rejects unsupported QR codes. To customize this behavior, modify the `string.match()` script located in `qr.html`.
 - **HTTPS Support**: Files are suitable for HTTPS connections (ensure your domain is whitelisted in the Mikrotik walled garden).
 - **Google AdSense**: Provisional support for displaying ads.
 - **First Stable Version**: Initial release for production use.
