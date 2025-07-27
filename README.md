@@ -1,5 +1,4 @@
 ## Overview
-
 This project provides a captive portal HTML page designed specifically for Mikrotik WiFi hotspots. It integrates with **Mikhmon V3** for hotspot monitoring and management.
 
 ## Features
@@ -14,12 +13,12 @@ This project provides a captive portal HTML page designed specifically for Mikro
 ## Usage
 
 1. **Deploy the HTML files** to your hosted domain's web server.
-    - For Mikrotik local `login.html`, set up a redirection using:
-      ```html
-      <script>
-         window.location.replace("https://www.yourdomain.com");
-      </script>
-      ```
+   - For Mikrotik local `login.html`, set up a redirection using:
+     ```html
+     <script>
+       window.location.replace("https://www.yourdomain.com");
+     </script>
+     ```
 2. **Enable walled garden** for your domain to allow access over HTTPS.
 3. **Authentication**: Uses HTTP PAP (CHAP challenge is not supported).
 
@@ -32,3 +31,16 @@ This project provides a captive portal HTML page designed specifically for Mikro
 ## License
 
 See [LICENSE](LICENSE) for details.
+
+### Third-Party Licenses
+
+This project includes and is a derivative work of the following open source projects:
+
+- **jQuery**  
+  Licensed under the MIT License. See [jQuery License](https://github.com/jquery/jquery/blob/main/LICENSE.txt).
+
+- **Bootstrap 5**  
+  Licensed under the MIT License. See [Bootstrap License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
+
+- **Mikhmon V3**  
+  Licensed under the MIT License. See [Mikhmon V3 License](https://github.com/laksa19/mikhmonv3/blob/master/LICENSE).
