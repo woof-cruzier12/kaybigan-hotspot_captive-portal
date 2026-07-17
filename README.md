@@ -1,5 +1,5 @@
 ## Overview
-This project provides a captive portal HTML page designed specifically for Mikrotik WiFi hotspots. It integrates with **Mikhmon V3** for hotspot monitoring and management.
+This project provides a captive portal HTML page designed specifically for Mikrotik WiFi hotspots. It integrates with [MIKHMON V3](https://github.com/laksa19/mikhmonv3) for hotspot monitoring and management.
 
 ## Features
 
