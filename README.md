@@ -1,5 +1,5 @@
 ## Overview
-This repository contains a custom captive portal page set for MikroTik Hotspot deployments.
+This project provides a captive portal HTML page designed specifically for Mikrotik WiFi hotspots. It integrates with [MIKHMON V3](https://github.com/laksa19/mikhmonv3) for hotspot monitoring and management.
 
 It is a static HTML/CSS/JS project (no build step required) and is intended to be hosted on your own web server/domain, then connected to your MikroTik hotspot flow.
 
@@ -69,7 +69,16 @@ If walled garden restrictions block external resources, remove/disable those ext
 See [LICENSE](LICENSE).
 
 ### Third-Party Licenses
-- **jQuery** - MIT: https://github.com/jquery/jquery/blob/main/LICENSE.txt
-- **Bootstrap 5** - MIT: https://github.com/twbs/bootstrap/blob/main/LICENSE
-- **Mikhmon V3** - GPL-2.0: https://github.com/laksa19/mikhmonv3/blob/master/LICENSE
-- **Fontello** - MIT: https://github.com/fontello/fontello/blob/master/LICENSE
+This project includes and is a derivative work of the following open source projects:
+
+- **jQuery**  
+  Licensed under the MIT License. See [jQuery License](https://github.com/jquery/jquery/blob/main/LICENSE.txt).
+
+- **Bootstrap 5**  
+  Licensed under the MIT License. See [Bootstrap License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
+
+- **Mikhmon V3**  
+  Licensed under the GNU GPL v2.0 License. See [Mikhmon V3 License](https://github.com/laksa19/mikhmonv3/blob/master/LICENSE).
+  
+- **Fontello**  
+   Licensed under the MIT License. See [Fontello License](https://github.com/fontello/fontello/blob/master/LICENSE).
