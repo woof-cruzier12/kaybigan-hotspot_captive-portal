@@ -1,39 +1,74 @@
 ## Overview
 This project provides a captive portal HTML page designed specifically for Mikrotik WiFi hotspots. It integrates with [MIKHMON V3](https://github.com/laksa19/mikhmonv3) for hotspot monitoring and management.
 
-## Features
+It is a static HTML/CSS/JS project (no build step required) and is intended to be hosted on your own web server/domain, then connected to your MikroTik hotspot flow.
 
-- **Captive Portal**: Custom landing page (`index.html`) for WiFi login.
-- **Mikhmon V3 Integration**: Monitor and manage hotspot users.
-- **QR Code Support**: Includes QR code login functionality using Mikhmon QR reader code. The system automatically scans for valid matches for your domain and rejects unsupported QR codes. To customize this behavior, modify the `string.match()` script located in `qr.html`.
-- **HTTPS Support**: Files are suitable for HTTPS connections (ensure your domain is whitelisted in the Mikrotik walled garden).
-- **Google AdSense**: Provisional support for displaying ads.
-- **First Stable Version**: Initial release for production use.
+## Included Pages
+- `index.html` - main captive portal login page
+- `qr.html` - QR voucher scanner page
+- `status.html` - account status page
+- `logout.html` - logout redirect page
+- `api.html` - API redirect helper
+- `xml/*` and `errors.txt` - MikroTik hotspot support files
 
-## Usage
+## Replication Guide (for other developers)
 
-1. **Deploy the HTML files** to your hosted domain's web server.
-   - For Mikrotik local `login.html`, set up a redirection using:
-     ```html
-     <script>
-       window.location.replace("https://www.yourdomain.com");
-     </script>
-     ```
-2. **Enable walled garden** for your domain to allow access over HTTPS.
-3. **Authentication**: Uses HTTP PAP (CHAP challenge is not supported).
+### 1) Clone and host files
+Deploy all repository files to your web host document root.
+
+### 2) Replace project-specific domain values
+This repo currently uses `kaybigan.hotspot` in several files. Replace it with your own hotspot/login domain:
+
+- `index.html`  
+  - `http://kaybigan.hotspot/login?...` (login submit URL)
+- `qr.html`  
+  - `string.match(/http:\/\/kaybigan\.hotspot\/login\?/);`
+- `status.html`  
+  - `location.replace('http://kaybigan.hotspot/status');`
+  - `location.replace('http://kaybigan.hotspot/logout?erase-cookie=on');`
+- `logout.html`  
+  - `location.replace('http://kaybigan.hotspot/logout');`
+- `api.html`  
+  - `location.replace("http://kaybigan.hotspot/api.json");`
+
+If your setup supports HTTPS end-to-end, use `https://` links consistently.
+
+### 3) Configure MikroTik local hotspot pages
+In MikroTik local `login.html`, redirect to your hosted portal domain:
+
+```html
+<script>
+  window.location.replace("https://your-domain.example");
+</script>
+```
+
+Current repo `login.html` uses:
+```html
+window.location.replace('/');
+```
+Update this to match your deployment strategy.
+
+### 4) Configure walled garden
+Allow required domains in MikroTik walled garden:
+- Your portal host/domain (required)
+- Any external services you keep enabled (example: Google AdSense scripts in `index.html`, `qr.html`, `status.html`)
+
+If walled garden restrictions block external resources, remove/disable those external scripts.
+
+### 5) Authentication behavior
+- Login flow is URL-based to hotspot endpoints.
+- The project currently uses HTTP PAP-style login flow.
+- CHAP handling is not implemented in this portal.
 
 ## Notes
-
-- This portal is intended for Mikrotik WiFi hotspots only.
-- The project was initially planned as a Login+blog, but development was discontinued.
-- Ensure your Mikrotik hotspot is configured to redirect users to `index.html` for login.
+- Intended for MikroTik hotspot environments.
+- Static project: no npm/pip/go build tools are required.
+- Verify all hardcoded domain references before production use.
 
 ## License
-
-See [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE).
 
 ### Third-Party Licenses
-
 This project includes and is a derivative work of the following open source projects:
 
 - **jQuery**  
